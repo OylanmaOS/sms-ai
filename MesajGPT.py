@@ -10,6 +10,12 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Senin Nokia 2220 Slide'ın hattına ait telefon numarası (+90...)
 HEDEF_NUMARA = "+905412795479" 
+
+def geminiye_sor(mesaj):
+    prompt = (
+        "Sen SMS ile çalışan bir yapay zekasın. "
+        "Yanıtın kesinlikle 150 karakteri geçmesin, Türkçe, net ve akıcı olsun."
+        f"\n\nSoru: {mesaj}"
     )
     response = model.generate_content(prompt)
     cevap = response.text.strip()
